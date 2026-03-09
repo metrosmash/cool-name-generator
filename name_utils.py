@@ -1,6 +1,13 @@
 import random
 import uuid
+"""
 
+This script when called generates a cool name (adjective-noun) eg clumsy-fish or powerfull hen 
+all you have to do it just call the '_generate_random_name' function 
+i also added my own function that lets you add your name to the function then you can use the adjective to create 
+different unique names with the combo adjective - word of your choosing 
+
+"""
 _EXPERIMENT_ID_FIXED_WIDTH = 18
 
 
@@ -33,11 +40,12 @@ def _generate_string(sep, integer_scale):
     predicate = random.choice(_GENERATOR_PREDICATES).lower()
     noun = random.choice(_GENERATOR_NOUNS).lower()
     num = random.randint(0, 10**integer_scale)
-    return f"{predicate}{sep}{noun}{sep}{num}"
-
+    #if you need to generate numbers with the name uncomment the line below
+    # return f"{predicate}{sep}{noun}{sep}{num}"
+    return f"{predicate}{sep}{noun}"
 
 def _generate_random_name(sep="-", integer_scale=3, max_length=20):
-    """Helper function for generating a random predicate, noun, and integer combination
+    """Helper function for generating a random predicate, noun, and if allowed integer combination
 
     Args:
         sep: String separator for word spacing.
@@ -56,6 +64,36 @@ def _generate_random_name(sep="-", integer_scale=3, max_length=20):
     # If the combined length isn't below the threshold after 10 iterations, truncate it.
     return name[:max_length]
 
+#My Addition to the name_utils-----------------------------------------------------------------
+def _generate_unique_names(sep, integer_scale, uname):
+    predicate = random.choice(_GENERATOR_PREDICATES).lower()
+    noun = uname.lower()
+    num = random.randint(0, 10**integer_scale)
+    #if you need to generate numbers with the name uncomment the line below
+    # return f"{predicate}{sep}{noun}{sep}{num}"
+    return f"{predicate}{sep}{noun}"
+
+def _generate_unique_name(uname, sep="-", integer_scale=3, max_length=20):
+    """Helper function for generating a Unique name along with the name added 
+
+    Args:
+        sep: String separator for word spacing.
+        integer_scale: Dictates the maximum scale range for random integer sampling (power of 10).
+        max_length: Maximum allowable string length.
+
+    Returns:
+        A random string phrase comprised of a predicate, noun, and random integer.
+
+    """
+    name = None
+    for _ in range(10):
+        name = _generate_unique_names(sep, integer_scale, uname)
+        if len(name) <= max_length:
+            return name
+    # If the combined length isn't below the threshold after 10 iterations, truncate it.
+    return name[:max_length]
+
+#----------------------------------------------------------------------------------------------
 
 _GENERATOR_NOUNS = [
     "ant",
