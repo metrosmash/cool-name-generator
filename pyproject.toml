@@ -1,0 +1,20 @@
+[project]
+name = "Metrosmash's-Cool_name-Generator"
+version = "0.0.1"
+authors = [
+  { name="Ajiboye Toluwalase", email="ajiboyetolu1@ gmail.com" },
+]
+maintainers = [
+    {name:"Metro", email:"metro@example.com"}
+]
+description = "A Cool name Generator"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "Apache"
+license-files = ["LICEN[CS]E*"]
+
+
