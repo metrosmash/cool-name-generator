@@ -1,6 +1,6 @@
  
 import random
-import name_utils as nu
+import src.name_utils as nu
 
 def _generate_unique_names(sep:str, uname:str)-> str:
     predicate = random.choice(nu._GENERATOR_PREDICATES).lower()
