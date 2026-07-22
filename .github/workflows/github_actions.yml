@@ -1,10 +1,7 @@
 name: uniquefied_tester
 
 on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+  push
 
 permissions:
   contents: read
@@ -34,6 +31,8 @@ jobs:
         ls ${{ github.workspace }}
     - name: Announce job status
       run: echo "🍏 This job's status is ${{ job.status }}."
+
+      
 
 
 
