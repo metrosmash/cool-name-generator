@@ -1,4 +1,4 @@
- 
+import argparse
 import random
 import src.name_utils as nu
 
@@ -27,5 +27,10 @@ def _generate_unique_name(uname:str, sep:str ="-", max_length:int = 20):
     # If the combined length isn't below the threshold after 10 iterations, truncate it.
     return name[:max_length]
 
-name = input("What name would you like Uniquefied? ")
-print(_generate_unique_name(name))
+# name = input("What name would you like Uniquefied? ")
+# print(_generate_unique_name(name))
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog="uniquefied", description="adds a random predicate to the provided parameter")
+    parser.add_argument("name", help="name you want uniquefied")
+    args = parser.parse_args()
+    print(_generate_unique_name(args.name))
